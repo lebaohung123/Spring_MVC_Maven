@@ -1,13 +1,10 @@
 package fa.training.infastructor;
 
 import jakarta.persistence.EntityManagerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -26,30 +23,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "fa.training.repository")
 public class JpaConfig {
-
-    @Value("${spring.datasource.driver-class-name}")
-    private String driver;
-
-    @Value("${spring.datasource.url}")
-    private String url;
-
-    @Value("${spring.datasource.username}")
-    private String username;
-
-    @Value("${spring.datasource.password}")
-    private String password;
-
-    @Value("${hibernate.dialect}")
-    private String dialect;
-
-    @Value("${spring.jpa.hibernate.ddl-auto}")
-    private String hbmAuto;
-
-    @Value("${spring.jpa.show-sql}")
-    private String showSQL;
-
-    @Value("${spring.jpa.properties.hibernate.format_sql}")
-    private String formatSQL;
     @Bean
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
